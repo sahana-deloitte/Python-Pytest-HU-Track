@@ -16,16 +16,16 @@ class MainPage:
             print("\t\t\t4-> Exit")
             choice = eval(input("\t\t\tEnter your choice(1/2/3/4):- "))
             if choice == 1:
-                am = Admin.Admin()
-                am.adminscreen()
+                admin = Admin.Admin()
+                admin.adminscreen()
 
             elif choice == 2:
-                rg = Register.Register();
-                rg.register_user()
+                register = Register.Register();
+                register.register_user()
 
             elif choice == 3:
-                us = User.User()
-                us.user_login()
+                user = User.User()
+                user.user_login()
 
             elif choice == 4:
                 exit()

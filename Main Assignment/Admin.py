@@ -94,7 +94,7 @@ class Admin:
         show_hr_up = show_hr
         show_mn_up = show_mn
         start_time = first_show
-        for i in range(no_shows):
+        for initial in range(no_shows):
             show_hr_up = show_hr_up + hours
             show_mn_up = show_mn_up + minutes
             temp_dict = {}
@@ -118,11 +118,11 @@ class Admin:
             print("First add the movie!! ")
             self.add_movies()
             return
-        for i in range(len(self.added_movies)):
-            print(self.added_movies[i]["title"])
+        for initial in range(len(self.added_movies)):
+            print(self.added_movies[initial]["title"])
 
         toEditTitle = input("Enter the movie title which you want to be updated ")
-        if self.added_movies[i]["title"] == toEditTitle:
+        if self.added_movies[initial]["title"] == toEditTitle:
             cont="y"
         else:
             self.edit_movies()
@@ -133,54 +133,54 @@ class Admin:
             "1.Genre\n2.Cast\n3.Director\n4.Admin Rating\n5.Language\n6.Length\tTimings\tNumber of Shows\t.First "
             "Show\tInterval\tTimeGap\tCapacity")
         while "y":
-            n = int(input("Enter your choice which you want to edit or -1 to exit\n "))
+            value = int(input("Enter your choice which you want to edit or -1 to exit\n "))
 
-            if n == -1:
+            if value == -1:
                 break
-            elif n == 1:
+            elif value == 1:
                 new_genre = input("Enter the new genre\n ")
-                for i in range(len(self.added_movies)):
-                    if self.added_movies[i]["title"] == toEditTitle:
-                        d = self.added_movies[i]
-                        d.update({"genre": new_genre})
+                for initial in range(len(self.added_movies)):
+                    if self.added_movies[initial]["title"] == toEditTitle:
+                        data = self.added_movies[initial]
+                        data.update({"genre": new_genre})
                         print("Updated")
                         break
 
-            elif n == 2:
+            elif value == 2:
                 new_cast = input("Enter the new cast\n ")
-                for i in range(len(self.added_movies)):
-                    if self.added_movies[i]["title"] == toEditTitle:
-                        d = self.added_movies[i]
-                        d.update({"cast": new_cast})
+                for initial in range(len(self.added_movies)):
+                    if self.added_movies[initial]["title"] == toEditTitle:
+                        data = self.added_movies[initial]
+                        data.update({"cast": new_cast})
                         print("Updated")
                         break
-            elif n == 3:
+            elif value == 3:
                 new_director = input("Enter the new director\n ")
-                for i in range(len(self.added_movies)):
-                    if self.added_movies[i]["title"] == toEditTitle:
-                        d = self.added_movies[i]
-                        d.update({"director": new_director})
+                for initial in range(len(self.added_movies)):
+                    if self.added_movies[initial]["title"] == toEditTitle:
+                        data = self.added_movies[initial]
+                        data.update({"director": new_director})
                         print("Updated")
                         break
 
-            elif n == 4:
+            elif value == 4:
                 new_rating = input("Enter the new rating\n ")
-                for i in range(len(self.added_movies)):
-                    if self.added_movies[i]["title"] == toEditTitle:
-                        d = self.added_movies[i]
-                        d.update({"rating": new_rating})
+                for initial in range(len(self.added_movies)):
+                    if self.added_movies[initial]["title"] == toEditTitle:
+                        data = self.added_movies[initial]
+                        data.update({"rating": new_rating})
                         print("Updated")
                         break
-            elif n == 5:
+            elif value == 5:
                 new_lang = input("Enter the new language\n ")
-                for i in range(len(self.added_movies)):
-                    if self.added_movies[i]["title"] == toEditTitle:
-                        d = self.added_movies[i]
-                        d.update({"language": new_lang})
+                for initial in range(len(self.added_movies)):
+                    if self.added_movies[initial]["title"] == toEditTitle:
+                        data = self.added_movies[initial]
+                        data.update({"language": new_lang})
                         print("Updated")
                         break
 
-            elif n == 6:
+            elif value == 6:
                 new_length =int(input("Enter the new length\n "))
                 new_no_shows = int(input("Enter the new no of shows\n "))
                 show_hr = int(input("Enter first show hour :-\n "))
@@ -198,7 +198,7 @@ class Admin:
                 show_hr_up = show_hr
                 show_mn_up = show_mn
                 start_time = first_show
-                for i in range(new_no_shows):
+                for initial in range(new_no_shows):
                     show_hr_up = show_hr_up + hours
                     show_mn_up = show_mn_up + minutes
                     temp_dict={}
@@ -216,13 +216,13 @@ class Admin:
                     self.movie_timings.update(temp)
                     start_time = end_time
 
-                for i in range(len(self.added_movies)):
-                    if self.added_movies[i]["title"] == toEditTitle:
-                        d = self.added_movies[i]
-                        d.update({"length": new_length})
-                        d.update({"shows": new_no_shows})
-                        d.update({"interval":new_interval})
-                        d.update({"gap":new_gap})
+                for initial in range(len(self.added_movies)):
+                    if self.added_movies[initial]["title"] == toEditTitle:
+                        data = self.added_movies[initial]
+                        data.update({"length": new_length})
+                        data.update({"shows": new_no_shows})
+                        data.update({"interval":new_interval})
+                        data.update({"gap":new_gap})
 
                         print("Updated")
                         break
@@ -236,14 +236,14 @@ class Admin:
             self.add_movies()
             return
         print("List of movies")
-        for i in range(len(self.added_movies)):
-            print(self.added_movies[i]["title"])
+        for initial in range(len(self.added_movies)):
+            print(self.added_movies[initial]["title"])
         toDeleteMovie = input("Enter the movie name to be deleted:- ")
         flag = 0
         flag1 = 0
-        for i in range(len(self.added_movies)):
-            if self.added_movies[i]["title"] == toDeleteMovie:
-                del self.added_movies[i]
+        for initial in range(len(self.added_movies)):
+            if self.added_movies[initial]["title"] == toDeleteMovie:
+                del self.added_movies[initial]
                 flag = 1
                 flag1 = 1
                 break

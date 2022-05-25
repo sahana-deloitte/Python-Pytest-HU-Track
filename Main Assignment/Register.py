@@ -14,24 +14,24 @@ class Register:
         workBook = load_workbook(file)
         workSheet = workBook['Sheet1']
 
-        li = [name, email, password, phone, age]
+        list = [name, email, password, phone, age]
         result = []
-        i = -1
+        initial = -1
         for row in workSheet:
-            l = []
+            list1 = []
             for col in row:
-                l.append(col.value)
-            result.append(l)
-            i += 1
-        result.append(li)
+                list1.append(col.value)
+            result.append(list1)
+            initial += 1
+        result.append(list)
         # print(result)
-        workSheet.insert_rows(i)
+        workSheet.insert_rows(initial)
 
-        i = 0
+        initial = 0
         for row in workSheet:
-            j = 0
+            jloop = 0
             for index, col in enumerate(row):
-                col.value = result[i][j]
-                j += 1
-            i += 1
+                col.value = result[initial][jloop]
+                jloop += 1
+            initial += 1
         workBook.save("userdata.xlsx")
